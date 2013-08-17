@@ -57,3 +57,25 @@ False
 >>> s1.touches(s2) #check if s1 touches either side of s2
 True
 ```
+
+Encompasses
+====
+
+Check to see if one span encompasses another:
+
+```python
+>>> from span import Span
+>>> from datetime import datetime, timedelta
+
+>>> now = datetime.now()
+
+>>> s1 = Span(now, now + timedelta(minutes=60))
+>>> s2 = Span(now, now + timedelta(minutes=60))
+>>> s3 = Span(now, now + timedelta(minutes=59))
+
+>>> s1.encompasses(s2)
+True
+
+>>> s1.encompassed_by(s2)
+False
+```
